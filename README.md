@@ -1,1 +1,1 @@
-# RocketHospital
+# Nimax
