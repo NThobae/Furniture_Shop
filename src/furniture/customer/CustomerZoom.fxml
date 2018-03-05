@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="furniture.customer.CustomerController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="imgView" fitHeight="350.0" fitWidth="550.0" onMouseClicked="#goCustomer" pickOnBounds="true" preserveRatio="true" x="25.0" y="25.0">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <Rectangle fx:id="imgViewZoom" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="350.0" onMouseClicked="#goCustomer" stroke="TRANSPARENT" strokeType="INSIDE" width="550.0" x="25.0" y="25.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

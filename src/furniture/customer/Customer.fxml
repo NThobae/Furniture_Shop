@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="500.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="furniture.customer.CustomerController">
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="firstTab" text="Featured product ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imgView" fitHeight="200.0" fitWidth="200.0" layoutX="37.0" layoutY="86.0" onMouseEntered="#inZoom" onMouseExited="#outZoom" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="exText" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="299.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BAOLALALLLASLLDLASDLSALDLASLDLASDLASLDLASDLALSDLASDLASDL" wrappingWidth="255.171875" AnchorPane.bottomAnchor="177.0" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="160.0" />
+                        <Text fx:id="name" layoutX="299.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font></Text>
+                        <Text fx:id="priceTag" layoutX="299.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Text>
+                        <Rectangle fx:id="box" arcHeight="5.0" arcWidth="5.0" fill="#1f96ff00" height="200.0" layoutX="37.0" layoutY="86.0" onMouseEntered="#inZoom" onMouseExited="#outZoom" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Text fx:id="amount" layoutX="503.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="491.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+                        <Button layoutX="469.0" layoutY="232.0" mnemonicParsing="false" onAction="#buySub" text="-" />
+                        <Button layoutX="524.0" layoutY="232.0" mnemonicParsing="false" onAction="#buyAdd" text="+" />
+                        <Button layoutX="471.0" layoutY="276.0" mnemonicParsing="false" onAction="#addToCartButton" text="AddToCart" />
+                        <Text fx:id="respText" layoutX="455.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="secondTab" text="Search product">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="filterField" layoutX="167.0" layoutY="14.0" promptText="search" />
+                        <Text layoutX="59.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for item">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="furnitureTable" layoutX="38.0" layoutY="76.0" prefHeight="263.0" prefWidth="470.0">
+                          <columns>
+                            <TableColumn fx:id="nameColumn" editable="false" prefWidth="110.0" text="Name" />
+                              <TableColumn fx:id="priceColumn" editable="false" prefWidth="128.0" sortable="false" text="Price" />
+                              <TableColumn fx:id="amountColumn" editable="false" prefWidth="231.0" text="Amount" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="540.0" layoutY="76.0" mnemonicParsing="false" onAction="#select" text="Show" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="thirdTab" text="Your cart">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="39.0" layoutY="40.0" text="Your selection">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Text fx:id="priceFull" layoutX="528.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " />
+                        <Button layoutX="502.0" layoutY="261.0" mnemonicParsing="false" onAction="#checkout" prefHeight="25.0" prefWidth="69.0" text="Checkout" />
+                        <TableView fx:id="cartTable" layoutX="39.0" layoutY="66.0" prefHeight="220.0" prefWidth="419.0">
+                           <columns>
+                              <TableColumn fx:id="nameColumnCart" editable="false" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="priceColumnCart" editable="false" prefWidth="136.0" sortable="false" text="Price" />
+                              <TableColumn fx:id="amountColumnCart" editable="false" prefWidth="207.0" text="Amount" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="482.0" layoutY="137.0" mnemonicParsing="false" onAction="#removeFromCartButton" text="RemoveFromCart" />
+                        <Button layoutX="556.0" layoutY="102.0" mnemonicParsing="false" onAction="#removeAdd" text="+" />
+                        <Button layoutX="495.0" layoutY="102.0" mnemonicParsing="false" onAction="#removeSub" text="-" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="520.0" layoutY="98.0" stroke="BLACK" strokeType="INSIDE" width="32.0" />
+                        <Text fx:id="remText" layoutX="533.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+                        <Text fx:id="cartRespText" layoutX="511.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="57.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="fourthTab" text="Checkout">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="352.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="welcomePic" fitHeight="265.0" fitWidth="335.0" layoutX="151.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text layoutX="203.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See you next time. Thank you!">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="buyMore" contentDisplay="CENTER" layoutX="285.0" layoutY="368.0" mnemonicParsing="false" onAction="#buyMore" text="Buy more" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
